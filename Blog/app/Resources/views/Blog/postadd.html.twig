@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    
+	<h4>Dodaj Post</h4>
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate'} }) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+
+ <script>
+			
+        $(".form-group").eq(2).hide();
+		//$("#appbundle_post_dateAdded_year ").hide(); 
+		//$("#appbundle_post_dateAdded_month ").hide(); 
+		//$("#appbundle_post_dateAdded_day ").hide(); 
+		
+      $("#appbundle_post_status").change(function(){
+			
+			if($("#appbundle_post_status").val()=="Opóźniona")
+			{
+				$(".form-group").eq(2).show();
+				
+			}
+			else
+			{
+				$(".form-group").eq(2).hide();
+			
+			}
+	});         
+			 
+
+ </script>
+ {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista opublikowanych postów</h1>
+
+    {% for post in posts %}
+        <h3><a href="{{ url("blog_details",{"id":post.id})}}"> {{ post.title }} </a></h3>
+    {% endfor %}
+    <div class="navigation text-center" style="margin:15px auto;width:250px">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
+	  
+
+        
+
+{% endblock %}
+

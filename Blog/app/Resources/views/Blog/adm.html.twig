@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+	
+	<h1>Panel administratora</h1>
+		<div class="main d-flex">
+			<div class="box text-center col-md-4">
+					<b>Nazwa</b>
+			</div>
+			<div class="box text-center col-md-3">
+					<b>Data dodania</b>
+			</div>
+			<div class="box text-center col-md-3">
+					<b>Status</b>
+			</div>
+			<div class="box text-center col-md-2">
+					<b>Link do edycji</b>
+			</div>
+		</div>
+    {% for post in posts %}
+        <div class="main d-flex">
+			<div class="box text-center col-md-4">
+				{{ post.title }} 
+			</div>
+			<div class="box text-center col-md-3">
+				test
+			</div>
+			<div class="box text-center col-md-3">
+				{{ post.status }}
+			</div>
+			<div class="box text-center col-md-2">
+				<a href="{{ url("blog_editpost",{"id":post.id}) }}"> Edycja </a>
+			</div>
+		</div>
+    {% endfor %}
+    
+	<div class="navigation text-center" style="margin:15px auto;width:250px">
+        {{ knp_pagination_render(posts) }}
+    </div>
+	
+	<a href="{{ url("blog_addpost") }}">Dodaj nowy post </a>
+
+{% endblock %}

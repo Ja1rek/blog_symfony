@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Blog</h1>
+	
+	
+	
+	
+	
+	{{ form(form) }}
+	
+					
+	
+	        <script>
+			
+            
+              
+			  $("#comment").submit(function(e){
+
+
+    var formURL = "{{ '/Blog/test' }}";
+    var formData = new FormData(this);
+    $.ajax({
+        url: formURL,
+         dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : formData,
+        success: function(data, textStatus, jqXHR)
+        {
+			alert("mmm");
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+        }
+    });
+    e.preventDefault(); //Prevent Default action.
+    e.unbind();
+});
+$(#comment).submit();
+            
+        </script>
+		
+		
+		
+		{% endblock %}
+		
